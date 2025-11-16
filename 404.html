@@ -1,94 +1,115 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>404 Not Found</title>
+<title>404 - Page Not Found</title>
 <style>
-  body {
-    background-color: #FFFFFF;
-    font-family: "Times New Roman", serif;
-    color: #000000;
-    margin: 50px;
-  }
-  
-  /* The "Hidden" Reality Layer */
-  .reality {
-    display: none; /* Hidden initially */
-    background-color: #000000;
-    color: #00FF00;
-    font-family: "Courier New", monospace;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Covers the whole screen */
-    padding: 40px;
-    box-sizing: border-box;
-    z-index: 99;
+  body { 
+    font-family: "Times New Roman", serif; 
+    background: #fff; 
+    color: #000; 
   }
 
-  .highlight { background-color: #00FF00; color: #000000; font-weight: bold; }
+  /* This is the container for the fake error message */
+  #fake-content {
+    padding: 50px;
+  }
   
-  a { color: #444444; text-decoration: none; }
-  a:hover { color: #FF0000; text-decoration: underline; cursor: crosshair; }
+  /* This is the secret overlay. It's hidden by default. */
+  #real-error {
+    display: none; /* STARTS HIDDEN */
+    background: #000000;
+    color: #00FF00; /* Bright green */
+    font-family: "Courier New", monospace;
+    
+    position: fixed; /* Makes it a fullscreen overlay */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 40px;
+    box-sizing: border-box; /* Fixes padding issues */
+    z-index: 9999; /* IMPORTANT: Forces it on top of everything */
+    overflow: auto; /* Lets user scroll if text is long */
+  }
+  
+  /* The invisible trigger dot. We make it white on a white background. */
+  .trigger { 
+    color: #FFFFFF; 
+    cursor: help; 
+    font-size: 5px; /* Small but clickable */
+  } 
+  
+  /* The "escape" button for the secret page */
+  .glitch-btn { 
+    border: 2px solid red; 
+    color: red; 
+    padding: 10px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    display: inline-block; 
+    margin-top: 20px;
+  }
+  .glitch-btn:hover {
+    background: red;
+    color: black;
+  }
 </style>
 </head>
 <body>
 
-<h1>HTTP 404 - File Not Found</h1>
-<p>The requested URL <code>/happy_burger/truth/ingredients.txt</code> was not found on this server.</p>
-<hr>
-<address>Apache/1.3.22 Server at www.happyburger.inc Port 80</address>
+<div id="fake-content">
+  <h1>Not Found</h1>
+  <p>The requested URL was not found on this server.</p>
+  <hr>
+  <address>Apache/2.4.41 (Unix) Server at happyburger.inc Port 80</address>
 
-<br><br><br><br><br><br>
+  <span class="trigger" onclick="decodeSequence()">.</span>
+</div>
 
-<center>
-  <span onmouseover="revealTruth()" style="cursor: help; color: #EEEEEE;">.</span>
-</center>
 
-<div id="truthLayer" class="reality">
-  <center>
-  <h1>WARNING: DO NOT APPLY</h1>
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExazN4eW52aHdvMHJ4bmE2d3l5Z3J5Z3J5Z3J5Z3J5Z3J5Z3J5/26tP7axeTIW5Vp8rC/giphy.gif" width="200" style="border: 2px solid green;">
-  </center>
-  
-  <p>
-    <b>FROM:</b> Ex-Employee #492<br>
-    <b>TO:</b> ANYONE LISTENING
-  </p>
-
-  <p>
-    It's not a job. It's a <span class="highlight">HARVEST</span>.
-  </p>
-  
-  <p>
-    I worked in the supply chain. I saw the trucks come in at 3 AM. They aren't carrying cows. They aren't carrying pigs.
-    <br><br>
-    Did you read the contract? <blink>"Waive rights to physical form."</blink>
-    <br><br>
-    Mr. Smiles isn't a mascot. He is something else. He lives in the basement. 
-    The "Sauce" is just <span class="highlight">filtered adrenaline</span>.
-  </p>
-
-  <pre>
-  LOG_ENTRY_1969:
-  > Subject A entered the containment unit.
-  > Subject A expressed joy.
-  > Subject A was processed into 400 patties.
-  > Flavor profile: OPTIMAL.
-  </pre>
-
-  <br>
-  <center>
-    <h3><a href="index.html" style="color: #FF0000;">[ RETURN TO IGNORANCE ]</a></h3>
-  </center>
-
+<div id="real-error">
   </div>
 
+
 <script>
-  function revealTruth() {
-    document.body.style.backgroundColor = "black";
-    document.getElementById('truthLayer').style.display = 'block';
-  }
+// This is the encoded "Lore" text.
+const _0x1a2b = [
+  "W1NFQ1JFVCBESVNDTE9TVVJFXQo=",
+  "ZnJvbTogRXgtRW1wbG95ZWUgIzQ5Mg==",
+  "dG86IFWSE9SKSBNQU5BR0VNRU5UCg==",
+  "CiItLSBJVCdTIE5PVCBBIEpPQi4gSVQnUyBBIEhBUlZFU1QuIC0tIgo=",
+  "ClRoZSB0cnVja3MgZG9uJ3QgYnJpbmcgY293cy4gVGhleSBicmluZyAnQXBwbGljYW50cycu",
+  "CkRpZCB5b3UgcmVhZCB0aGUgZmluZSBwcmludD8gIllvdXIgcGh5c2ljYWwgZm9ybSBpcyBmb3JmZWl0LiIK",
+  "Ck1yLiBTbWlsZXMgbGl2ZXMgaW4gdGhlIGJhc2VtZW50LiBIZSBpcyBodW5ncnku",
+  "VGhlICdTbWlsZSBTYXVjZScgaXMganVzdCBhZHJlbmFsaW5lIGFuZCBmb29kIGNvbG9yaW5nLgo=",
+  "Ci0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpMT0dfRU5UUllfMTk2OToKPiBTdWJqZWN0IEEgZW50ZXJlZCBjb250YWlubWVudC4KPiBTdWJqZWN0IEEgZXhwcmVzc2VkIGpveS4KPiBTdWJqZWN0IEEgd2FzIHByb2Nlc3NlZCBpbnRvIDQwMCBwYXR0aWVzLgo+IEZsYXZvciBwcm9maWxlOiBPUFRJTUkwLg=="
+];
+
+function decodeSequence() {
+  const fakePage = document.getElementById('fake-content');
+  const realPage = document.getElementById('real-error');
+  
+  // Build the secret content
+  let decodedHTML = "<h2 style='color:red'>CRITICAL SYSTEM FAILURE: MEMORY LEAK</h2><p>DECODING CORRUPTED LOGS...</p><hr>";
+  
+  _0x1a2b.forEach(line => {
+    // atob() is the function that decodes Base64
+    decodedHTML += "<p>" + atob(line) + "</p>";
+  });
+
+  decodedHTML += "<br><br><a href='index.html' class='glitch-btn'>[ ABORT ] [ ESCAPE ] [ RETURN TO IGNORANCE ]</a>";
+  
+  // --- This is the new logic ---
+  
+  // 1. Hide the fake page
+  fakePage.style.display = 'none';
+  
+  // 2. Put the decoded text into the hidden div
+  realPage.innerHTML = decodedHTML;
+  
+  // 3. Show the real (secret) page
+  realPage.style.display = 'block';
+}
 </script>
 
 </body>
