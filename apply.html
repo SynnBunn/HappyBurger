@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>APPLY NOW - GIVE US YOUR INFO</title>
+<style>
+  body { background-color: #000000; color: #00FF00; font-family: "Comic Sans MS", sans-serif; }
+  .warning { color: red; font-size: 24px; text-decoration: blink; }
+  input, select, textarea { 
+    background-color: #FFFF00; 
+    border: 3px inset #FF0000; 
+    color: #000000; 
+    font-family: "Courier New";
+    font-weight: bold;
+  }
+  /* The Glitch Button Style */
+  #submitBtn {
+    background-color: #FF0000;
+    color: #FFFF00;
+    font-size: 20px;
+    cursor: pointer;
+    border: 5px outset #FFFFFF;
+  }
+  #submitBtn:hover {
+    background-color: #000000;
+    color: #FF0000;
+    border: 5px solid red;
+  }
+</style>
+</head>
+<body>
+
+<center>
+<img src="https://web.archive.org/web/20090829103458/http://geocities.com/ResearchTriangle/Thinktank/4775/underconstruction.gif">
+<br>
+<h1 style="color: white; background-color: red;">JOB APPLICATION FORM</h1>
+<p style="color: white;">PLEASE FILL OUT COMPLETELY. WE HATE INCOMPLETE DATA.</p>
+
+<div style="background-color: #CCCCCC; width: 500px; border: 5px dashed red; padding: 20px; text-align: left; color: black;">
+
+  <form id="appForm">
+    
+    <label><b>FULL NAME:</b></label><br>
+    <input type="text" id="name" required style="width: 90%;"><br><br>
+
+    <label><b>MINECRAFT USERNAME:</b></label><br>
+    <input type="text" id="ign" required style="width: 90%;"><br><br>
+
+    <label><b>DISCORD USERNAME:</b></label><br>
+    <input type="text" id="discord" required style="width: 90%;"><br><br>
+
+    <label><b>AGE:</b></label><br>
+    <select id="age">
+      <option>13-17 (Tender)</option>
+      <option>18-25 (Prime)</option>
+      <option>26-40 (Tough)</option>
+      <option>40+ (Expired)</option>
+    </select>
+    <br><br>
+    <hr>
+    
+    <center><b style="color: red;">PSYCHOLOGICAL EVALUATION</b></center><br>
+
+    <label>Are you afraid of tight spaces (like a walk-in freezer)?</label><br>
+    <input type="radio" name="fear" value="Yes"> Yes, I am weak.<br>
+    <input type="radio" name="fear" value="No"> No, I enjoy confinement.<br><br>
+
+    <label>Why do you want to be Happy?</label><br>
+    <textarea id="reason" rows="4" style="width: 90%;"></textarea><br><br>
+
+    <input type="checkbox" id="waive" required>
+    <label for="waive"><b>I AGREE</b> to waive all rights to my physical form, digital likeness, and soul in perpetuity to Happy Burger Inc.</label><br><br>
+
+    <center>
+      <input type="submit" id="submitBtn" value="SUBMIT SOUL" 
+             onmouseover="this.value='SUBMIT APPLICATION'" 
+             onmouseout="this.value='SUBMIT SOUL'">
+    </center>
+
+  </form>
+</div>
+
+<br>
+<a href="index.html" style="color: white;">[ CANCEL / ESCAPE ]</a>
+
+</center>
+
+<script>
+document.getElementById('appForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // --- CONFIGURATION ---
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1439692178967236760/kYY075Ns2mUPjcl-H0iHTPrBOeWNw1BCwgNHd3XI6I8HGHFpF2pXFUlJTXsKT4MJa80C"; 
+    // ---------------------
+
+    const name = document.getElementById('name').value;
+    const ign = document.getElementById('ign').value;
+    const discord = document.getElementById('discord').value;
+    const age = document.getElementById('age').value;
+    const fear = document.querySelector('input[name="fear"]:checked') ? document.querySelector('input[name="fear"]:checked').value : "No Answer";
+    const reason = document.getElementById('reason').value;
+
+    const payload = {
+        username: "Happy Burger HR Bot",
+        content: "**NEW VICTIM... I MEAN APPLICANT!**",
+        embeds: [
+            {
+                title: "Application Received",
+                color: 16711680, // Red
+                fields: [
+                    { name: "Real Name", value: name, inline: true },
+                    { name: "Minecraft IGN", value: ign, inline: true },
+                    { name: "Discord", value: discord, inline: true },
+                    { name: "Age Group", value: age, inline: true },
+                    { name: "Fear of Tight Spaces?", value: fear },
+                    { name: "Reason for Happiness", value: reason }
+                ],
+                footer: { text: "Soul Contract Signed: TRUE" }
+            }
+        ]
+    };
+
+    fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("APPLICATION SUBMITTED. PLEASE REMAIN WHERE YOU ARE. ASSOCIATES ARE EN ROUTE.");
+            window.location.href = "index.html";
+        } else {
+            alert("ERROR: THE MAINFRAME REJECTED YOU.");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert("CONNECTION FAILED. DID YOU CUT THE CORD?");
+    });
+});
+</script>
+
+</body>
+</html>

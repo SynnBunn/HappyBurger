@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>404 - Page Not Found</title>
+<style>
+  body { font-family: "Times New Roman", serif; background: #fff; color: #000; padding: 50px; }
+  /* This hides the secret container until triggered */
+  #error-log { display: none; background: black; color: #0f0; position: fixed; top:0; left:0; width:100%; height:100%; padding: 20px; font-family: monospace; overflow: auto;}
+  .trigger { color: white; cursor: help; } 
+  .glitch-btn { border: 2px solid red; color: red; padding: 10px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px;}
+</style>
+</head>
+<body>
+
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<hr>
+<address>Apache/2.4.41 (Unix) Server at happyburger.inc Port 80</address>
+
+<span class="trigger" onclick="decodeSequence()">.</span>
+
+<div id="error-log"></div>
+
+<script>
+// This is the encoded "Lore" text. To the average person, it looks like random data.
+// It actually says: "FROM: Ex-Employee #492... It's not a job. It's a HARVEST..."
+const _0x1a2b = [
+  "W1NFQ1JFVCBESVNDTE9TVVJFXQo=",
+  "ZnJvbTogRXgtRW1wbG95ZWUgIzQ5Mg==",
+  "dG86IFWSE9SKSBNQU5BR0VNRU5UCg==",
+  "CiItLSBJVCdTIE5PVCBBIEpPQi4gSVQnUyBBIEhBUlZFU1QuIC0tIgo=",
+  "ClRoZSB0cnVja3MgZG9uJ3QgYnJpbmcgY293cy4gVGhleSBicmluZyAnQXBwbGljYW50cycu",
+  "CkRpZCB5b3UgcmVhZCB0aGUgZmluZSBwcmludD8gIllvdXIgcGh5c2ljYWwgZm9ybSBpcyBmb3JmZWl0LiIK",
+  "Ck1yLiBTbWlsZXMgbGl2ZXMgaW4gdGhlIGJhc2VtZW50LiBIZSBpcyBodW5ncnku",
+  "VGhlICdTbWlsZSBTYXVjZScgaXMganVzdCBhZHJlbmFsaW5lIGFuZCBmb29kIGNvbG9yaW5nLgo=",
+  "Ci0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpMT0dfRU5UUllfMTk2OToKPiBTdWJqZWN0IEEgZW50ZXJlZCBjb250YWlubWVudC4KPiBTdWJqZWN0IEEgZXhwcmVzc2VkIGpveS4KPiBTdWJqZWN0IEEgd2FzIHByb2Nlc3NlZCBpbnRvIDQwMCBwYXR0aWVzLgo+IEZsYXZvciBwcm9maWxlOiBPUFRJTUkwLg=="
+];
+
+function decodeSequence() {
+  const container = document.getElementById('error-log');
+  container.style.display = 'block';
+  
+  let decodedHTML = "<h2 style='color:red'>CRITICAL SYSTEM FAILURE</h2>";
+  
+  // Simple Base64 decoding loop
+  _0x1a2b.forEach(line => {
+    decodedHTML += "<p>" + atob(line) + "</p>";
+  });
+
+  decodedHTML += "<br><br><a href='index.html' class='glitch-btn'>[ ESCAPE TO SAFETY ]</a>";
+  container.innerHTML = decodedHTML;
+  document.body.style.backgroundColor = "black";
+}
+</script>
+
+</body>
+</html>
